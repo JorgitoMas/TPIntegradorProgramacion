@@ -1,14 +1,22 @@
 # depslib dependency file v1.0
-1761195209 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funciones.cpp
+1761526721 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funciones.cpp
 	<iostream>
+	<cstdlib>
+	<ctime>
+	"Funciones.h"
+	"rlutil.h"
+	<thread>
+	<chrono>
 
-1761198092 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\main.cpp
+1761524251 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\main.cpp
 	<iostream>
+	<cstdlib>
+	<ctime>
 	"Funciones.h"
 	"Interfaz.h"
 	"rlutil.h"
 
-1761195210 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funciones.h
+1761524316 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funciones.h
 
 1761198097 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\interfaz.h
 	"rlutil.h"
@@ -26,4 +34,9 @@
 	<sys/ioctl.h>
 	<sys/types.h>
 	<sys/time.h>
+
+1761525302 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\interfaz.cpp
+	<iostream>
+	"Interfaz.h"
+	"Funciones.h"
 

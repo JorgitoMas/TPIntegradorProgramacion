@@ -1,5 +1,8 @@
 #include <iostream>
 #include "Interfaz.h"
+#include "Funciones.h"
+
+using namespace std;
 
 // Aqui agregamos los menu y mensajes
 //Region Menu
@@ -32,7 +35,25 @@ void mostrarMenu() {
 
 void jugar() {
     rlutil::cls();
-    std::cout << "Iniciando el juego...\n";
+    rlutil::setColor(rlutil::WHITE);
+
+    string nombreJ1, nombreJ2;
+    int oroJ1 = 0;
+    int oroJ2 = 0;
+    int oroFaseInicialJ1 = 0;
+    int oroFaseInicialJ2 = 0;
+
+    cout << "Ingrese nombre del Jugador 1: ";
+    cin >> nombreJ1;
+    cout << "Ingrese nombre del Jugador 2: ";
+    cin >> nombreJ2;
+
+    //Ejecutar Fase Inicial
+    faseInicial(nombreJ1, nombreJ2, oroJ1, oroJ2, oroFaseInicialJ1, oroFaseInicialJ2);
+
+    // Tenemos que continuar con Fase 2 ac  usando esas mismas variables:
+    // faseBusquedaTesoros(...)
+
     rlutil::anykey();
 }
 
