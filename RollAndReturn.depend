@@ -8,11 +8,11 @@
 	<thread>
 	<chrono>
 
-1761524251 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\main.cpp
+1762134951 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
-	"Funciones.h"
+	"FuncionesFase1.h"
 	"Interfaz.h"
 	"rlutil.h"
 
@@ -35,8 +35,23 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1761525302 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\interfaz.cpp
+1762142301 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\interfaz.cpp
 	<iostream>
 	"Interfaz.h"
-	"Funciones.h"
+	"FuncionesFase1.h"
+	"FuncionesFase2.h"
+
+1762134951 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase1.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"FuncionesFase1.h"
+	"rlutil.h"
+	<thread>
+	<chrono>
+
+1762142820 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase1.h
+
+1762142301 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase2.h
+	<string>
 

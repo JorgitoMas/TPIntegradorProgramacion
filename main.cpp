@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include "Funciones.h"
+#include "FuncionesFase1.h"
 #include "Interfaz.h"
 #include "rlutil.h"
 

@@ -17,5 +17,8 @@ bool esEscaleraValida(int dados[3]);
 // Escto correria toda la fase inicial y actualiza oroJugador1, oroJugador2, oroFaseInicialJ1 y oroFaseInicialJ2
 void faseInicial(std::string nombreJ1, std::string nombreJ2, int &oroJ1, int &oroJ2, int &oroFaseInicialJ1, int &oroFaseInicialJ2);
 
+//Para pausar milisegundos
+void pausarMilisegundos(int ms);
+
 
 

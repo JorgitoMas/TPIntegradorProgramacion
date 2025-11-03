@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Interfaz.h"
-#include "Funciones.h"
+#include "FuncionesFase1.h"
+#include "FuncionesFase2.h"
 
 using namespace std;
 
@@ -43,6 +44,13 @@ void jugar() {
     int oroFaseInicialJ1 = 0;
     int oroFaseInicialJ2 = 0;
 
+    //variables que sumamos para fase2
+    int llaveGJ1 = 0, llaveGJ2 = 0;
+    int cofresJ1 = 0, cofresJ2 = 0;
+    int usoLGJ1 = 0, usoLGJ2 = 0;
+    int vendEJ1 = 0, vendRJ1 = 0, vendDJ1 = 0;
+    int vendEJ2 = 0, vendRJ2 = 0, vendDJ2 = 0;
+
     cout << "Ingrese nombre del Jugador 1: ";
     cin >> nombreJ1;
     cout << "Ingrese nombre del Jugador 2: ";
@@ -51,8 +59,16 @@ void jugar() {
     //Ejecutar Fase Inicial
     faseInicial(nombreJ1, nombreJ2, oroJ1, oroJ2, oroFaseInicialJ1, oroFaseInicialJ2);
 
-    // Tenemos que continuar con Fase 2 ac  usando esas mismas variables:
-    // faseBusquedaTesoros(...)
+    // Aqui continuamos con la fase 2
+    faseBusquedaTesoros(
+      nombreJ1, nombreJ2,
+      oroJ1, oroJ2,
+      llaveGJ1, llaveGJ2,
+      cofresJ1, cofresJ2,
+      usoLGJ1, usoLGJ2,
+      vendEJ1, vendRJ1, vendDJ1,
+      vendEJ2, vendRJ2, vendDJ2
+    );
 
     rlutil::anykey();
 }

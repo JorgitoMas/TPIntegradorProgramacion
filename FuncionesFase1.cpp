@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>  // rand , para obtener numeros random
 #include <ctime>    // time
-#include "Funciones.h"
+#include "FuncionesFase1.h"
 #include "rlutil.h"
 #include <thread>
 #include <chrono>
