@@ -120,9 +120,8 @@ void faseInicial(string nombreJ1, string nombreJ2,
     int dadosJ1[3];
     int dadosJ2[3];
 
-    // ======================
     // COMPETENCIA 1
-    // ======================
+
     cout << "Competencia numero 1 - Dado mas alto gana 50 oro\n\n";
 
     int d1 = tirarDado();
@@ -170,9 +169,7 @@ void faseInicial(string nombreJ1, string nombreJ2,
     cout << "Presione una tecla para pasar a la competencia 2 de la Fase 1";
     rlutil::anykey();
 
-    // ======================
     // COMPETENCIA 2
-    // ======================
     rlutil::cls();
     cout << "Competencia numero 2 - Sin repetidos (3 dados) (50 oro)\n\n";
 
@@ -239,9 +236,9 @@ void faseInicial(string nombreJ1, string nombreJ2,
     cout << "Presione una tecla para pasar a la competencia 3 de la Fase 1";
     rlutil::anykey();
 
-    // ======================
+
     // COMPETENCIA 3
-    // ======================
+
     rlutil::cls();
     cout << "Competencia numero 3 - Escaleras validas (3 dados) (50 oro)\n";
     cout << "Escaleras validas: {1,2,3} {4,5,6} {2,4,6} {1,3,5}\n\n";

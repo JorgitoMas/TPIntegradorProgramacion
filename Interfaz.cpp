@@ -2,6 +2,7 @@
 #include "Interfaz.h"
 #include "FuncionesFase1.h"
 #include "FuncionesFase2.h"
+#include "FuncionesFase3.h"
 
 using namespace std;
 
@@ -70,18 +71,28 @@ void jugar() {
       vendEJ2, vendRJ2, vendDJ2
     );
 
+    faseFinalPDV(
+      nombreJ1, nombreJ2,
+      oroJ1, oroJ2,
+      oroFaseInicialJ1, oroFaseInicialJ2,
+      cofresJ1, cofresJ2,
+      usoLGJ1, usoLGJ2,
+      vendEJ1, vendRJ1, vendDJ1,
+      vendEJ2, vendRJ2, vendDJ2
+    );
+
     rlutil::anykey();
 }
 
 void estadisticas() {
     rlutil::cls();
-    std::cout << "Mostrando estad¡sticas...\n";
+    mostrarEstadisticas();
     rlutil::anykey();
 }
 
 void creditos() {
     rlutil::cls();
-    std::cout << "Cr‚ditos del juego:\n";
+    mostrarCreditos();
     rlutil::anykey();
 }
 

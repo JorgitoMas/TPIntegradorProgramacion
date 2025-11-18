@@ -5,10 +5,7 @@
 #include "FuncionesFase1.h" // para usar tirarNDados(), pausarMilisegundos(), etc.
 
 using namespace std;
-
-// =====================================================
-//                 API PRINCIPAL – FASE 2
-// =====================================================
+//Principal fase2
 
 void faseBusquedaTesoros(
   string j1, string j2,
@@ -32,7 +29,7 @@ void faseBusquedaTesoros(
                           oroJ1, llaveGJ1, cofresJ1, usoLGJ1,
                           vendEJ1, vendRJ1, vendDJ1,
                           oroJ1, oroJ2, true);
-        pausaSiguiente("Presione una tecla para continuar con el turno del siguiente jugador...");
+        //pausaSiguiente("Presione una tecla para continuar con el turno del siguiente jugador...");
 
         // Turno jugador 2
         turnoRondaJugador(j2, ronda,
@@ -52,11 +49,7 @@ void faseBusquedaTesoros(
     pausaSiguiente("Presione una tecla para continuar a la Fase Final...");
 }
 
-
-// =====================================================
-//                 ORQUESTACIÓN POR JUGADOR
-// =====================================================
-
+//por jugador
 void turnoRondaJugador(
   string nombre, int ronda,
   int &oro, int &llaveGuardada,
@@ -116,9 +109,7 @@ void turnoRondaJugador(
 }
 
 
-// =====================================================
-//                 LÓGICA PURA
-// =====================================================
+// logica
 
 void contarCaras5(const int tirada[5], int conteo[7]) {
     for (int f = 1; f <= 6; f++) conteo[f] = 0;
@@ -180,9 +171,7 @@ int oroPorGemas(const int conteo[7], int &vendE, int &vendR, int &vendD) {
 }
 
 
-// =====================================================
-//                 UI / I/O
-// =====================================================
+// interfaz
 
 const char* nombreCofre(int ronda) {
     if (ronda == 1) return "Madera";

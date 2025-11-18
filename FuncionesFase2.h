@@ -13,7 +13,7 @@ void faseBusquedaTesoros(
   int &vendEJ2, int &vendRJ2, int &vendDJ2
 );
 
-// --------------------- HELPERS DE FLUJO ---------------------
+//HELPERS
 
 void turnoRondaJugador(
   string nombre, int ronda,
@@ -23,7 +23,7 @@ void turnoRondaJugador(
   int oroJ1Vis, int oroJ2Vis, bool esJugador1
 );
 
-// --------------------- HELPERS LÓGICOS ---------------------
+
 
 void contarCaras5(const int tirada[5], int conteo[7]);
 bool puedeAbrirCofre(int ronda, const int conteo[7], int llaveGuardada);
@@ -33,7 +33,7 @@ int  valorGema (int tipo);  // 4->40, 5->50, 6->60
 int  oroPorLlavesRestantes(const int conteo[7]);  // suma 1..3*valor
 int  oroPorGemas(const int conteo[7], int &vendE, int &vendR, int &vendD);
 
-// --------------------- HELPERS DE UI / I/O ---------------------
+
 
 const char* nombreCofre(int ronda); // "Madera"/"Piedra"/"Metal"
 
