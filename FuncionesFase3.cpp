@@ -3,7 +3,6 @@
 */
 
 #include <iostream>
-#include <fstream>
 #include "rlutil.h"
 #include "FuncionesFase3.h"
 #include "FuncionesFase2.h"
@@ -11,6 +10,16 @@
 using namespace std;
 
 //helpers internos
+
+static int &refMejorPuntaje(){
+    static int mejorPuntaje = -1; //significca sin rercord aun
+    return mejorPuntaje;
+}
+
+static string &refMejorNombre(){
+    static string mejorNombre = "";
+    return mejorNombre;
+}
 
 static int paquetesDe30(int oro) { return oro / 30; }
 static int monedasSueltas(int oro) { return oro % 30; }
@@ -154,28 +163,16 @@ void faseFinalPDV(
 }
 
 // Estadisticas
-// Persistimos el mejor registro en un archivo de texto simple.
-// Formato: primera linea nombre, segunda linea PDV (entero)
-
-static const char* STATS_FILE = "rr_estadisticas.txt";
-
 void actualizarEstadisticasSiMejora(const string &nombre, int pdvTotal) {
-    // Leer r‚cord actual
-    string bestName = "";
-    int bestScore = -1;
+    int &mejorPuntaje = refMejorPuntaje();
+    string &mejorNombre = refMejorNombre();
 
-    ifstream in(STATS_FILE);
-    if (in.good()) {
-        getline(in, bestName);
-        in >> bestScore;
-    }
-    in.close();
+    //si no hay record o el nuevo puntaje es mayor => actualizamos
+    if(pdvTotal > mejorPuntaje){
+        mejorPuntaje = pdvTotal;
 
-    // Si no hab¡a o si superamos el r‚cord, guardamos
-    if (pdvTotal > bestScore) {
-        ofstream out(STATS_FILE, ios::trunc);
-        out << nombre << "\n" << pdvTotal << "\n";
-        out.close();
+        mejorNombre = nombre;
+
     }
 }
 
@@ -184,21 +181,13 @@ void mostrarEstadisticas() {
     rlutil::setColor(rlutil::WHITE);
     cout << "=== ESTADISTICAS ===\n\n";
 
-    string bestName = "";
-    int bestScore = -1;
+    int mejorPuntaje = refMejorPuntaje();
+    string mejorNombre = refMejorNombre();
 
-    ifstream in(STATS_FILE);
-    if (in.good()) {
-        getline(in, bestName);
-        in >> bestScore;
-    }
-    in.close();
-
-    if (bestScore >= 0 && bestName.size() > 0) {
-        cout << "Mejor puntaje:\n";
-        cout << "- " << bestName << " : " << bestScore << " PDV\n";
-    } else {
-        cout << "Aun no hay estadisticas registradas.\n";
+    if (mejorPuntaje >= 0 && mejorNombre != "" ){
+        std::cout << "Mejor puntaje: " << mejorNombre << " : " << mejorPuntaje << " PDV \n";
+    }else {
+        cout << "Aun no hay estadisticas registradas. \n";
     }
 
     pausaSiguiente("Presione una tecla para volver...");
@@ -213,7 +202,6 @@ void mostrarCreditos() {
     cout << "Equipo: R&&R Devs\n\n";
     cout << "Integrantes:\n";
     cout << "- Mas, Jorge Ariel, Legajo: 12345\n";
-    cout << "- (Completar cada uno su nombre y legajo)\n\n";
     cout << "Juego inventado por Angel Simon \n";
     pausaSiguiente("Presione una tecla para volver...");
 }

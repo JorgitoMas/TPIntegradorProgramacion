@@ -42,7 +42,7 @@
 	"FuncionesFase2.h"
 	"FuncionesFase3.h"
 
-1762134951 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase1.cpp
+1763425984 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase1.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -56,7 +56,7 @@
 1763425984 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase2.h
 	<string>
 
-1762142820 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase2.cpp
+1763425985 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase2.cpp
 	<iostream>
 	<cstdlib>
 	"rlutil.h"
@@ -65,4 +65,11 @@
 
 1763425985 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase3.h
 	<string>
+
+1764112181 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase3.cpp
+	<iostream>
+	"rlutil.h"
+	"FuncionesFase3.h"
+	"FuncionesFase2.h"
+	"FuncionesFase1.h"
 
