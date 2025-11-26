@@ -20,8 +20,7 @@ void turnoRondaJugador(
   int &oro, int &llaveGuardada,
   int &cofresAbiertos, int &usoLlaveGuardada,
   int &vendE, int &vendR, int &vendD,
-  int oroJ1Vis, int oroJ2Vis, bool esJugador1
-);
+  int oroJ1Vis, int oroJ2Vis);
 
 
 

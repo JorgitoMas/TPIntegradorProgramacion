@@ -19,6 +19,12 @@ void faseBusquedaTesoros(
     rlutil::cls();
     rlutil::setColor(rlutil::WHITE);
     cout << "=== Fase 2: Busqueda de Tesoros ===\n\n";
+    cout << "1 = Llave Madera\n";
+    cout << "2 = Llave Piedra\n";
+    cout << "3 = Llave Metal\n";
+    cout << "4 = Esmeralda\n";
+    cout << "5 = Rubi\n";
+    cout << "6 = Diamante \n\n";
 
     for (int ronda = 1; ronda <= 3; ronda++) {
         cout << "RONDA " << ronda << " - Cofre de " << nombreCofre(ronda) << "\n";
@@ -28,14 +34,16 @@ void faseBusquedaTesoros(
         turnoRondaJugador(j1, ronda,
                           oroJ1, llaveGJ1, cofresJ1, usoLGJ1,
                           vendEJ1, vendRJ1, vendDJ1,
-                          oroJ1, oroJ2, true);
-        //pausaSiguiente("Presione una tecla para continuar con el turno del siguiente jugador...");
+                          oroJ1, oroJ2);
+        pausaSiguiente("Presione una tecla para continuar con el turno del siguiente jugador...");
+
 
         // Turno jugador 2
+        rlutil::cls();
         turnoRondaJugador(j2, ronda,
                           oroJ2, llaveGJ2, cofresJ2, usoLGJ2,
                           vendEJ2, vendRJ2, vendDJ2,
-                          oroJ1, oroJ2, false);
+                          oroJ1, oroJ2);
         pausaSiguiente("Presione una tecla para continuar...");
 
         rlutil::cls();
@@ -55,20 +63,21 @@ void turnoRondaJugador(
   int &oro, int &llaveGuardada,
   int &cofresAbiertos, int &usoLlaveGuardada,
   int &vendE, int &vendR, int &vendD,
-  int oroJ1Vis, int oroJ2Vis, bool /*esJugador1*/
-) {
+  int oroJ1Vis, int oroJ2Vis) {
     int tirada[5];
     tirarNDados(tirada, 5);
 
     int conteo[7] = {0};
     contarCaras5(tirada, conteo);
 
+    pausarMilisegundos(600);
     mostrarEstadoJugadorF2(nombre, ronda, oroJ1Vis, oroJ2Vis, llaveGuardada, tirada, conteo);
 
     bool abre = puedeAbrirCofre(ronda, conteo, llaveGuardada);
     pausarMilisegundos(350);
 
     if (abre) {
+        pausarMilisegundos(300);
         cout << "\nPuede abrir el cofre con llave " << nombreCofre(ronda) << ".\n";
 
         // Consumimos la llave (de tirada si hay, o la guardada)
@@ -81,35 +90,52 @@ void turnoRondaJugador(
         oro += total;
         cofresAbiertos++;
 
+        pausarMilisegundos(300);
         cout << "Venta de gemas: +" << oroG << " oro\n";
+        pausarMilisegundos(300);
         cout << "Venta de llaves sobrantes: +" << oroL << " oro\n";
+        pausarMilisegundos(300);
         cout << "Ganancia total de la ronda: +" << total << " oro\n";
     } else {
+        pausarMilisegundos(300);
         cout << "\nNO puede abrir el cofre.\n";
-        cout << "Elija: (V)ender todas las llaves  |  (G)uardar una llave para proximas rondas\n";
-        char op = leerOpcionVG();
 
-        if (op == 'V') {
-            int oroL = oroPorLlavesRestantes(conteo);
-            oro += oroL;
-            cout << "Vendio llaves por +" << oroL << " oro.\n";
-        } else { // 'G'
-            int tipo = elegirLlaveAGuardar(conteo);
-            if (tipo == 0) {
-                cout << "No tiene llaves en la tirada para guardar. No se gana oro.\n";
-            } else {
-                // Si ya tenia una, se reemplaza (la anterior se pierde sin vender)
-                llaveGuardada = tipo;
-                cout << "Guarda una llave de " << nombreCofre(tipo) << " para proximas rondas.\n";
+        int totalLlaves = conteo[1] + conteo[2] + conteo[3];
+
+        if(totalLlaves == 0){
+            pausarMilisegundos(300);
+            cout << "No obtuvo ninguna llave en esta tirada.\n";
+            pausarMilisegundos(300);
+            cout << "No hay llaves para vender ni para guardar.\n";
+            pausarMilisegundos(300);
+            cout << "Ganancia de la ronda: 0 oro.\n";
+
+        }else{
+            pausarMilisegundos(300);
+            cout << "Elija: (V)ender todas las llaves  |  (G)uardar una llave para proximas rondas\n";
+            char op = leerOpcionVG();
+
+            if (op == 'V') {
+                int oroL = oroPorLlavesRestantes(conteo);
+                oro += oroL;
+                cout << "Vendio llaves por +" << oroL << " oro.\n";
+            } else { // 'G'
+                int tipo = elegirLlaveAGuardar(conteo);
+                if (tipo == 0) {
+                    cout << "No tiene llaves en la tirada para guardar. No se gana oro.\n";
+                } else {
+                    // Si ya tenia una, se reemplaza (la anterior se pierde sin vender)
+                    llaveGuardada = tipo;
+                    cout << "Guarda una llave de " << nombreCofre(tipo) << " para proximas rondas.\n";
+                }
             }
         }
+
     }
 
     cout << "Oro actual de " << nombre << ": " << oro << "\n";
 }
 
-
-// logica
 
 void contarCaras5(const int tirada[5], int conteo[7]) {
     for (int f = 1; f <= 6; f++) conteo[f] = 0;
@@ -190,17 +216,23 @@ void mostrarTirada5(const int tirada[5]) {
 }
 
 void mostrarConteoLlaves(const int conteo[7]) {
-    cout << "Llaves: "
-         << "Madera x" << conteo[1] << ", "
-         << "Piedra x" << conteo[2] << ", "
-         << "Metal x"  << conteo[3];
+    pausarMilisegundos(300);
+    cout << "Madera x" << conteo[1] << ", \n";
+         pausarMilisegundos(300);
+    cout << "Piedra x" << conteo[2] << ", \n";
+         pausarMilisegundos(300);
+    cout << "Metal x"  << conteo[3] << "\n\n";
+         pausarMilisegundos(300);
 }
 
 void mostrarConteoGemas(const int conteo[7]) {
-    cout << "Gemas : "
-         << "Esmeraldas x" << conteo[4] << ", "
-         << "Rubies x"     << conteo[5] << ", "
-         << "Diamantes x"  << conteo[6];
+    pausarMilisegundos(300);
+    cout << "Esmeraldas x" << conteo[4] << ",\n";
+         pausarMilisegundos(300);
+    cout << "Rubies x"     << conteo[5] << ",\n";
+         pausarMilisegundos(300);
+    cout << "Diamantes x"  << conteo[6] << "\n\n";
+         pausarMilisegundos(300);
 }
 
 void mostrarEstadoJugadorF2(
@@ -210,19 +242,34 @@ void mostrarEstadoJugadorF2(
     rlutil::setColor(rlutil::WHITE);
     cout << "Fase: Busqueda | Ronda " << ronda
          << " (Cofre de " << nombreCofre(ronda) << ") | Turno: " << nombre << "\n";
-    cout << "Oro: J1=" << oroJ1 << " | J2=" << oroJ2 << "\n\n";
+    cout << "Oro Jugador 1= " << oroJ1 << "\n";
+    cout << "Oro Jugador 2= " << oroJ2 << "\n\n";
 
-    cout << "Tirada: ";
+    cout << nombre << " tira";
+    pausarMilisegundos(300);
+    cout << ".";
+    pausarMilisegundos(300);
+    cout << ".";
+    pausarMilisegundos(300);
+    cout << ". ";
+    cout << "   ";
     mostrarTirada5(tirada);
-    cout << "\n";
+    cout << "\n\n";
+    pausarMilisegundos(400);
+    cout << "Llaves obtenidas:\n\n";
+    pausarMilisegundos(300);
     mostrarConteoLlaves(conteo);
     cout << "\n";
+    pausarMilisegundos(300);
+    cout << "Gemas obtenidas:\n\n";
+    pausarMilisegundos(300);
     mostrarConteoGemas(conteo);
     cout << "\n";
 
+    pausarMilisegundos(400);
     cout << "Llave guardada actual: ";
     if (llaveGuardada == 0) cout << "(ninguna)\n";
-    else cout << nombreCofre(llaveGuardada) << "\n";
+    else cout << nombreCofre(llaveGuardada) << "\n\n";
 }
 
 char leerOpcionVG() {
@@ -259,6 +306,7 @@ void aplicarDecisionNoAbre(
     if (opcionVG == 'V') {
         int oroL = oroPorLlavesRestantes(conteo);
         oro += oroL;
+        pausarMilisegundos(300);
         cout << "Vendio llaves por +" << oroL << " oro.\n";
         return;
     }
@@ -266,9 +314,11 @@ void aplicarDecisionNoAbre(
     // opcion 'G'
     int tipo = elegirLlaveAGuardar(conteo);
     if (tipo == 0) {
+        pausarMilisegundos(300);
         cout << "No hay llaves para guardar. No se gana oro.\n";
     } else {
         llaveGuardada = tipo; // si ya habia, se reemplaza (la anterior se pierde)
+        pausarMilisegundos(300);
         cout << "Guarda llave de " << nombreCofre(tipo) << ".\n";
     }
 }

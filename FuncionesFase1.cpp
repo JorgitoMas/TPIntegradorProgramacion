@@ -6,10 +6,7 @@
 #include <thread>
 #include <chrono>
 
-
 using namespace std;
-
-// Utilidades basicas para todo el juego
 
 //Para demorar un poco las tiradas
 void pausarMilisegundos(int ms) {
@@ -17,11 +14,8 @@ void pausarMilisegundos(int ms) {
 }
 
 int tirarDado(){
-    return (rand() % 6) + 1; // Esto me da un numero aleatorio entre 1 y 6
+    return (rand() % 6) + 1;
 }
-
-// con esto solucionamos las veces que se tiran dados (en cantidad le mandamos cuantas veces se tiran y
-//llenamos en dados lo que salio en cada tirada con numeros random de tirarDado())
 
 void tirarNDados(int dados[], int cantidad){
     for(int i = 0; i < cantidad; i++){
@@ -29,7 +23,6 @@ void tirarNDados(int dados[], int cantidad){
     }
 }
 
-//Para las reglas del juego esto devuelve true si los resultados de los dados son todos distintos
 bool tieneTresDistintos(int dados[3]){
     if(dados[0] != dados[1] && dados[0] != dados[2] && dados[1] != dados[2]){
         return true;
@@ -39,10 +32,9 @@ bool tieneTresDistintos(int dados[3]){
 
 }
 
-//ordenar 3 enteros de menor a mayor
 void ordenar3(int &a, int &b, int &c){
     int aux;
-    if(a > b){ // si a es mayor que b cambiamos los valores de a por b para ir ordenando de menor a mayor
+    if(a > b){
         aux = a;
         a = b;
         b = aux;
@@ -116,7 +108,6 @@ void faseInicial(string nombreJ1, string nombreJ2,
     oroJ1 = 150;
     oroJ2 = 150;
 
-    // vamos a reutilizar estos arreglos en comp2 y comp3
     int dadosJ1[3];
     int dadosJ2[3];
 
@@ -240,7 +231,7 @@ void faseInicial(string nombreJ1, string nombreJ2,
     // COMPETENCIA 3
 
     rlutil::cls();
-    cout << "Competencia numero 3 - Escaleras validas (3 dados) (50 oro)\n";
+    cout << "Competencia numero 3 - Escaleras validas (3 dados) (50 oro)\n\n";
     cout << "Escaleras validas: {1,2,3} {4,5,6} {2,4,6} {1,3,5}\n\n";
 
     tirarNDados(dadosJ1, 3);
@@ -315,15 +306,10 @@ void faseInicial(string nombreJ1, string nombreJ2,
     oroFaseInicialJ2 = oroJ2;
 
     cout << "\nOro FINAL Fase Inicial:\n";
-    pausarMilisegundos(400);
-    cout << ".";
-    pausarMilisegundos(400);
-    cout << ".";
-    pausarMilisegundos(400);
-    cout << ".\n";
+    pausarMilisegundos(600);
 
     cout << " - " << nombreJ1 << ": " << oroJ1 << "\n";
-    cout << " - " << nombreJ2 << ": " << oroJ2 << "\n";
+    cout << " - " << nombreJ2 << ": " << oroJ2 << "\n\n";
 
     cout << "Presione una tecla para pasar a la Fase 2";
     rlutil::anykey();

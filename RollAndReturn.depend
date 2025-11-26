@@ -42,7 +42,7 @@
 	"FuncionesFase2.h"
 	"FuncionesFase3.h"
 
-1763425984 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase1.cpp
+1764117483 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase1.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -53,10 +53,10 @@
 
 1762142820 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase1.h
 
-1763425984 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase2.h
+1764117483 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase2.h
 	<string>
 
-1763425985 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase2.cpp
+1764115511 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase2.cpp
 	<iostream>
 	<cstdlib>
 	"rlutil.h"
@@ -66,7 +66,7 @@
 1763425985 c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase3.h
 	<string>
 
-1764112181 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase3.cpp
+1764112340 source:c:\users\jorge curso\desktop\utn\programacion1\trabajopracticointegrador\rollandreturn\funcionesfase3.cpp
 	<iostream>
 	"rlutil.h"
 	"FuncionesFase3.h"
